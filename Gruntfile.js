@@ -30,10 +30,10 @@ module.exports = function (grunt) {
       },
       livereload: {
         files: [
-          './Gruntfile.js', 
-          'build/*.html', 
-          'build/js/**/*.{js,json}', 
-          'build/css/*.css', 
+          './Gruntfile.js',
+          'build/*.html',
+          'build/js/**/*.{js,json}',
+          'build/css/*.css',
           'build/img/**/*.{png,jpg,jpeg,gif,webp,svg}'],
         options: {
           livereload: true
@@ -157,6 +157,6 @@ module.exports = function (grunt) {
   // Default task(s).
   // grunt.registerTask('default', ['uglify']);
   grunt.registerTask('default', ['browserSync', 'watch', 'sass:dist', 'imagemin:dynamic']);
-  grunt.registerTask('build', ['sass:dist','concat', 'uglify','imagemin:dynamic']);
+  grunt.registerTask('build', ['sass:dist', 'concat', 'uglify', 'imagemin:dynamic']);
 
 };
