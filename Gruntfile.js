@@ -156,7 +156,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   // Default task(s).
   // grunt.registerTask('default', ['uglify']);
-  grunt.registerTask('default', ['browserSync', 'watch', 'sass:dist', 'imagemin:dynamic']);
-  grunt.registerTask('build', ['sass:dist', 'concat', 'uglify', 'imagemin:dynamic']);
+  grunt.registerTask('start', ['browserSync', 'watch', 'sass:dist', 'imagemin:dynamic']);
+  grunt.registerTask('default', ['sass:dist', 'concat', 'uglify', 'imagemin:dynamic']);
 
 };
