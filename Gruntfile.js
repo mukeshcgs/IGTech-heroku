@@ -8,8 +8,11 @@ module.exports = function (grunt) {
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
   // Project configuration.
+  var pkg = require('./package.json');
+
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    pkg: pkg,
+
     // uglify: {
     //   options: {
     //     banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
@@ -146,9 +149,38 @@ module.exports = function (grunt) {
         }
       }
     },
+    buildcontrol: {
+      options: {
+        dir: 'dist',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      pages: {
+        options: {
+
+          remote: 'https://github.com/mukeshcgs/IGTech-heroku.git',
+          branch: 'gh-pages'
+        }
+      },
+      heroku: {
+        options: {
+          remote: 'https://git.heroku.com/igtechnologies.git',
+          branch: 'master',
+          tag: pkg.version
+        }
+      },
+      local: {
+        options: {
+          remote: '../',
+          branch: 'build'
+        }
+      }
+    }
   });
 
   // Load the plugin that provides the "uglify" task.
+  grunt.loadNpmTasks('grunt-build-control');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
@@ -157,6 +189,7 @@ module.exports = function (grunt) {
   // Default task(s).
   // grunt.registerTask('default', ['uglify']);
   grunt.registerTask('start', ['browserSync', 'watch', 'sass:dist', 'imagemin:dynamic']);
+  grunt.registerTask('build', ['buildcontrol']);
   grunt.registerTask('default', ['sass:dist', 'concat', 'uglify', 'imagemin:dynamic']);
 
 };
