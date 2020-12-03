@@ -1,0 +1,25 @@
+{
+  "name": "igtech-heroku",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "grunt",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mukeshcgs/IGTech-heroku.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mukeshcgs/IGTech-heroku/issues"
+  },
+  "homepage": "https://github.com/mukeshcgs/IGTech-heroku#readme",
+
+  "engines": {
+    "node": "10.x"
+  }
+}
